@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_s3cur1ty?createDatabaseIfNotExist=true
+    password:
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 8081
+
+
