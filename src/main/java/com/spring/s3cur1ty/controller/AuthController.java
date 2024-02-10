@@ -21,11 +21,13 @@ public class AuthController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
+        System.out.println(request);
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<String> test(){
-        return ResponseEntity.ok("test");
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        authenticationService.logout(); // Implement logout logic in the service
+        return ResponseEntity.ok("Logged out successfully");
     }
 }

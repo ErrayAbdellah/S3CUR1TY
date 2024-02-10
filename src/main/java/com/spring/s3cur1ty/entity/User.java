@@ -1,6 +1,6 @@
 package com.spring.s3cur1ty.entity;
 
-import com.spring.s3cur1ty.enums.Role;
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,12 +31,13 @@ public class User implements UserDetails {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+//    @Enumerated(EnumType.STRING)
+    @ManyToOne(cascade =  {CascadeType.MERGE, CascadeType.DETACH},fetch = FetchType.EAGER)
+    private Role role ;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(role.getName()));
     }
 
     @Override
