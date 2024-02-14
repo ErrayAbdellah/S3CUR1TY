@@ -8,4 +8,5 @@ public interface AuthenticationService {
     AuthenticationResponse register(RegisterRequest user);
 
     AuthenticationResponse authenticate(AuthenticationRequest user);
+    void logout();
 }
