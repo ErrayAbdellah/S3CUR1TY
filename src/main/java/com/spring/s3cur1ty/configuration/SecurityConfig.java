@@ -27,7 +27,7 @@ public class SecurityConfig {
         http
                 .cors().and()
 //                .csrf(AbstractHttpConfigurer::disable)
-//                .csrf().disable()
+                .csrf().disable()
 //                .csrf().ignoringRequestMatchers("/api/v1/auth/**")
 //                    .csrfTokenRepository(CookieCsrfTokenRepository
 //                            .withHttpOnlyFalse())
@@ -57,26 +57,26 @@ public class SecurityConfig {
         return http.build();
     }
 
-    @Bean
-    public CorsFilter corsFilter() {
+//    @Bean
+//    public CorsFilter corsFilter() {
+////        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+////        CorsConfiguration config = new CorsConfiguration();
+////        config.addAllowedOrigin("http://localhost:4200/**");
+////        // Allow all origins, headers, and methods. This is just an example; adjust it based on your needs.
+//////        config.addAllowedOrigin("*");
+//////        config.addAllowedHeader("*");
+//////        config.addAllowedMethod("*");
+//////        source.registerCorsConfiguration("/**", config);
+////        return new CorsFilter(source);
 //        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 //        CorsConfiguration config = new CorsConfiguration();
-//        config.addAllowedOrigin("http://localhost:4200/**");
-//        // Allow all origins, headers, and methods. This is just an example; adjust it based on your needs.
-////        config.addAllowedOrigin("*");
-////        config.addAllowedHeader("*");
-////        config.addAllowedMethod("*");
-////        source.registerCorsConfiguration("/**", config);
+//        // Allow all origins, headers, and methods. Adjust these based on your needs.
+//        config.addAllowedOrigin("http://localhost:4200");
+//        config.addAllowedHeader("*");
+//        config.addAllowedMethod("*");
+//        // Allow credentials (cookies, authorization headers)
+//        config.setAllowCredentials(true);
+//        source.registerCorsConfiguration("/**", config);
 //        return new CorsFilter(source);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        // Allow all origins, headers, and methods. Adjust these based on your needs.
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        // Allow credentials (cookies, authorization headers)
-        config.setAllowCredentials(true);
-        source.registerCorsConfiguration("/**", config);
-        return new CorsFilter(source);
-    }
+//    }
 }
